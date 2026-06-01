@@ -2,11 +2,13 @@ import { AsyncLocalStorage } from "async_hooks";
 import sql from "mssql";
 
 export class UnitOfWork {
+  /** @param {sql.ConnectionPool} pool */
   constructor(pool) {
     this.pool = pool;
     this.storage = new AsyncLocalStorage();
   }
 
+  /** @param {Function} fn */
   async runInTransaction(fn) {
     const transaction = new sql.Transaction(this.pool);
     try {
@@ -19,7 +21,7 @@ export class UnitOfWork {
       await transaction.commit();
       return result;
     } catch (error) {
-      if (transaction._joined) await transaction.rollback();
+      await transaction.rollback();
       throw error;
     }
   }

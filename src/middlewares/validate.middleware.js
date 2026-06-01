@@ -1,4 +1,5 @@
-/** @type {import("express").RequestHandler} */
+/** @param {import("zod").ZodObject<any>} schema } */
+/** @returns {import("express").RequestHandler} */
 export const validate = (schema) => (req, res, next) => {
   try {
     const target = {};
