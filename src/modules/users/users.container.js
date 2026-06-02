@@ -6,6 +6,7 @@ import { UsersController } from "./users.controller.js";
 import { UsersRepository } from "./users.repository.js";
 import { UsersService } from "./users.service.js";
 
+// init DI containers
 const pool = getPool();
 const uow = new UnitOfWork(pool);
 const usersRepository = new UsersRepository(uow);

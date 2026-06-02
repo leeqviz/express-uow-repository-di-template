@@ -1,5 +1,6 @@
 import { NotFoundError } from "../../utils/errors.js";
 
+// business logic
 export class UsersService {
   constructor(usersRepository, getUserAnalyticsQuery, uow) {
     this.usersRepository = usersRepository;

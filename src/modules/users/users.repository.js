@@ -1,3 +1,4 @@
+// db repository
 export class UsersRepository {
   constructor(uow) {
     this.uow = uow;

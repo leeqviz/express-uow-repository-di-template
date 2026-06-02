@@ -1,3 +1,4 @@
+// extra queries
 export class GetUserAnalyticsQuery {
   constructor(uow) {
     this.uow = uow;
